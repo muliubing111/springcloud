@@ -1,0 +1,47 @@
+###服务注册到eureka地址
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+           defaultZone: http://localhost:8888/eureka
+spring:
+  application:
+    ####注册中心应用名称
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          ###git环境地址
+          uri: https://gitee.com/itmayi/config.git
+          ####搜索目录
+          search-paths:
+            - config
+      ####读取分支
+      label: master
+####端口号
+server:
+  port: 8880
+###开启bus刷新
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: bus-refresh
+
+#这是我们启动该服务，访问该配置文件，访问路径示例如下(以该配置为例)：
+#----------------------
+#/{application}/{profile}/[label]
+# /{application}-{profile}.yml
+# /{label}/{application}-{profile}.yml
+# /{application}-{profile}.properties
+# /{label}/{application}-{profile}.properties
+# 其中{label}是指分支，默认是master。
+# ---------------------
+#例如
+#http://localhost:8880/config-client/dev/master
+#http://localhost:8880/config-client/dev
+#{"name":"config-client","profiles":["dev"],"label":"master","version":"f55f625be52cb896ae35af65be81bd1f48f86044","state":null,"propertySources":[{"name":"https://gitee.com/itmayi/config.git/config/config-client-dev.properties","source":{"name":"李想","age":"72","sex":"男","democonfigclient.message":"ssssssssssssssssskafjaksdjh哈哈啥回事","foo":"1234","from":"xxx-dev-2.0"}}]}
+#http://localhost:8880/master/config-client-dev.yml （有乱码）
+#http://localhost:8880/master/config-client-dev.properties

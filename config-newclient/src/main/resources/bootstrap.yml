@@ -14,16 +14,13 @@ spring:
 #####    eureka服务注册地址
 eureka:
   client:
-    register-with-eureka: true
-    fetch-registry: true
     service-url:
            defaultZone: http://localhost:8888/eureka
 server:
   port: 8881
-###开启bus刷新
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: bus-refresh
-
+###开启监控断点 手动刷新
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

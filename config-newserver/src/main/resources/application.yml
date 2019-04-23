@@ -1,8 +1,6 @@
 ###服务注册到eureka地址
 eureka:
   client:
-    register-with-eureka: true
-    fetch-registry: true
     service-url:
            defaultZone: http://localhost:8888/eureka
 spring:
@@ -14,10 +12,10 @@ spring:
       server:
         git:
           ###git环境地址
-          uri: https://gitee.com/itmayi/config.git
+          uri: https://gitee.com/app-config/config_test_of_spring_cloud.git
           ####搜索目录
           search-paths:
-            - config
+            - appConfig
       ####读取分支
       label: master
 ####端口号

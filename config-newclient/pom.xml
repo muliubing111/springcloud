@@ -39,16 +39,11 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 
-		<!--核心jar包 -->
-		<!--<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
-		</dependency>
-		&lt;!&ndash; actuator监控中心 &ndash;&gt;
+		<!-- actuator监控中心 手动刷新-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>-->
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
